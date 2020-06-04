@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   redis-master:
     image: redis:5-alpine
@@ -8,7 +8,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ~/.redis:/data
+      - ~/.redis/master:/data
 
   redis-slave-1:
     image: redis:5-alpine
@@ -18,8 +18,7 @@ services:
     ports:
       - 6380:6380
     volumes:
-      - ~/.redis:/data
-
+      - ~/.redis/slave1:/data
 
   redis-slave-2:
     image: redis:5-alpine
@@ -29,7 +28,7 @@ services:
     ports:
       - 6381:6381
     volumes:
-      - ~/.redis:/data
+      - ~/.redis/slave2:/data
 
   sentinel1:
     image: redis:5-alpine
